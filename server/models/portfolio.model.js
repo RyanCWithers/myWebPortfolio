@@ -46,12 +46,69 @@ const educationSchema = new mongoose.Schema({
         default: '',
         required: [true, 'Please enter the highest level achieved.']
     },
+    institutionState: {
+        type: String,
+        default: '',
+        required: [true, 'Please enter the state.']
+    },
     dateStarted: {
-        type: Date,
-        default: '2000-01-01'
+        type: String,
+        default: ''
     },
     dateFinished: {
-        type: Date,
-        default: '2000-01-01'
+        type: String,
+        default: ''
     }
-}, {timestamps: true})
+}, {timestamps: true});
+
+//Work Experience Schema
+
+const workSchema = new mongoose.Schema({
+    company: {
+        type: String,
+        default: '',
+        required: [true, 'Please enter the company name.']
+    },
+    companyLocation: {
+        type: String,
+        default: '',
+        required: [true, 'Please enter the company location.']
+    },
+    position: {
+        type: String,
+        default: ''
+    },
+    dateStarted: {
+        type: String,
+        default: ''
+    },
+    dateFinished: {
+        type: String,
+        default: ''
+    },
+    jobDescription: {
+        type: String,
+        default: ''
+    }
+}, {timestamps: true});
+
+//User Schema
+const languageSchema = new mongoose.Schema({
+    language: {
+        type: String,
+        default: ''
+    }
+}, {timestamps: true});
+
+const userSchema = new mongoose.Schema({
+    contactInfo: {contactSchema},
+    workExp: [workSchema],
+    education: [educationSchema],
+    aspirations:{
+        type: String
+    },
+    profSum:{
+        type: String
+    },
+    languages: [languageSchema]
+}, {timestamps: true});
