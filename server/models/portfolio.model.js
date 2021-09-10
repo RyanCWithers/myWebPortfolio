@@ -112,3 +112,6 @@ const userSchema = new mongoose.Schema({
     },
     languages: [languageSchema]
 }, {timestamps: true});
+
+
+module.exports.User = mongoose.model('User', userSchema);
